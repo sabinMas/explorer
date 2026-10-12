@@ -47,7 +47,14 @@ public class ExplorerSearch {
         return null;
     }
     private static int explore(int[][] island, boolean[][] seen, int r, int c){
-        
+
+        //first if statement for possible moves boundaries of the graph
+
+        //second if statement for visited checks
+
+        //third if statement for possible move but wall checks 
+
+        //return count where we add movement logic
 
 
     }
