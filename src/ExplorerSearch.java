@@ -39,15 +39,21 @@ public class ExplorerSearch {
         return explore (island, seen, start[0], start[1]);
     }
     //helper to find starting location 0 
+    //we need to add a handler to dissallow a second starting point
     private static int[] theStartingPositionWhere0Is(int[][] island) {
+        int[] start = null;
         for(int r = 0; r<island.length; r++){
             for(int c = 0; c<island[r].length; c++){
                 if(island[r][c] == 0){
-                    return new int [] {r, c};
+                    if(start != null){
+                        throw new IllegalArgumentException("two starting points found");
+                    }
                 }
+                start = new int [] {r, c};
             }
+            
         }
-        return null;
+        return start;
     }
     private static int explore(int[][] island, boolean[][] seen, int r, int c){
 
