@@ -29,18 +29,27 @@ public class ExplorerSearch {
      * @return the number of spaces the explorer can reach
      */
     public static int reachableArea(int[][] island) {
+        PrettyPrint.prettyPrintln(island);
         // Implement your method here!
         // Please also make more test cases
         // I STRONGLY RECOMMEND testing some helpers you might make too
+        //pretty print implementation
+        PrettyPrint.prettyPrintln(island);
         int [] start = theStartingPositionWhere0Is(island);
         if (start == null) return 0;
         boolean [][] seen = new boolean [island.length][island[0].length];
 
-        return explore (island, seen, start[0], start[1]);
+        //pretty print
+        int area = explore(island, seen, start[0], start[1]);
+        PrettyPrint.prettyPrintln(seen);
+        return area;
+
+        // return explore (island, seen, start[0], start[1]);
     }
     //helper to find starting location 0 
     //we need to add a handler to dissallow a second starting point
     private static int[] theStartingPositionWhere0Is(int[][] island) {
+        
         int[] start = null;
         for(int r = 0; r<island.length; r++){
             for(int c = 0; c<island[r].length; c++){
